@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
+import { ThreadPage } from '../pages/thread/thread';
 import { RouterModule, Routes } from '@angular/router';
-import { CredentialPage } from '../pages/credential/credential';
 
 const routes: Routes = [
-	{ path: '', component: CredentialPage },
+	{ path: '', component: ThreadPage },
 	{ path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
