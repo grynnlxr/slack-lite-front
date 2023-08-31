@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'app-card',
+	selector: 'app-main',
 	templateUrl: './template.html',
 })
 export class MainPage {}
