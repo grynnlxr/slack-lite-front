@@ -1,0 +1,4 @@
+<p *ngIf="service.threads.length < 1">loading</p>
+<ul *ngFor="let thread of service.threads">
+	<li (click)="changeTo(thread)">{{ thread.label }}</li>
+</ul>
