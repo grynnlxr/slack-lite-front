@@ -23,8 +23,7 @@ export class ThreadService {
 	}
 
 	fetch() {
-		const url = `/api/v1/threads`;
-		const request = this.http.get<Thread[]>(url);
+		const request = this.http.get<Thread[]>('/api/v1/threads');
 		request.subscribe((threads: Thread[]) => {
 			this.threads = threads;
 		});
