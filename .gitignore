@@ -6,3 +6,6 @@
 /tmp
 /out-tsc
 /bazel-out
+
+# Angular
+.angular
