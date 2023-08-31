@@ -1,0 +1,4 @@
+<p *ngIf="service.messages.length < 1">loading</p>
+<ul *ngFor="let message of service.messages">
+	<li>{{ message.id }}</li>
+</ul>
