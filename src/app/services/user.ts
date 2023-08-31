@@ -9,7 +9,7 @@ export interface User {
 	providedIn: 'root',
 })
 export class UserService {
-	public user?: User;
+	public user: User | null = null;
 	private users: User[] = [
 		{ id: '6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', name: 'Angelisium' },
 		{ id: 'e6d8b859-22ea-4d4d-a958-f7677a23a38b', name: 'Alice' },
@@ -30,5 +30,10 @@ export class UserService {
 			return true;
 		}
 		return false;
+	}
+
+	logout() {
+		localStorage.removeItem('username');
+		this.user = null;
 	}
 }
