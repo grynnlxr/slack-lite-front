@@ -22,7 +22,7 @@ export class UserService {
 		}
 	}
 
-	login(name: string) {
+	login(name: string): boolean {
 		const user = this.users.find((u) => u.name == name);
 		if (user) {
 			localStorage.setItem('username', user.name);
