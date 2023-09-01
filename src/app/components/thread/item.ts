@@ -7,4 +7,12 @@ import { Thread } from 'src/app/services/thread';
 })
 export class ThreadItemComponent {
 	@Input() data!: Thread;
+
+	edit(event: MouseEvent) {
+		event.stopPropagation();
+	}
+
+	remove(event: MouseEvent) {
+		event.stopPropagation();
+	}
 }
