@@ -5,6 +5,7 @@ import { Thread, ThreadService } from 'src/app/services/thread';
 @Component({
 	selector: 'thread-list',
 	templateUrl: './list.template.html',
+	styleUrls: ['./list.style.css'],
 })
 export class ThreadListComponent {
 	label!: string;
