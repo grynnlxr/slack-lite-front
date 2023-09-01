@@ -1,5 +1,5 @@
 <section>
-	<h1 *ngIf="getState() > 1">{{ threadService.thread?.label }}</h1>
+	<h1 *ngIf="getState() > 1" class="title block">{{ threadService.thread?.label }}</h1>
 
 	<div [ngSwitch]="getState()">
 		<p *ngSwitchCase="0">pas de thread choisi</p>
