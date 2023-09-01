@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 export interface User {
 	id: string;
 	name: string;
+	avatar: string;
 }
 
 @Injectable({
@@ -11,8 +12,16 @@ export interface User {
 export class UserService {
 	public user: User | null = null;
 	private users: User[] = [
-		{ id: '6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', name: 'Angelisium' },
-		{ id: 'e6d8b859-22ea-4d4d-a958-f7677a23a38b', name: 'Alice' },
+		{
+			id: '6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa',
+			name: 'Angelisium',
+			avatar: '/assets/alexis.ava.png',
+		},
+		{
+			id: 'e6d8b859-22ea-4d4d-a958-f7677a23a38b',
+			name: 'Alice',
+			avatar: '/assets/alice.ava.png',
+		},
 	];
 
 	constructor() {
