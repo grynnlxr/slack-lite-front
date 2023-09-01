@@ -1,0 +1,10 @@
+.core {
+	display: flex;
+	margin: 4px 6px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+input {
+	width: 95%;
+}
