@@ -15,6 +15,7 @@ export interface Message {
 })
 export class MessageService {
 	messages: Message[] = [];
+	loading: boolean = false;
 
 	constructor(
 		// Services
@@ -23,6 +24,7 @@ export class MessageService {
 		private http: HttpClient
 	) {
 		threadService.onChange.subscribe((thread: Thread) => {
+			this.loading = true;
 			this.fetch(thread.id);
 		});
 	}
@@ -40,6 +42,7 @@ export class MessageService {
 				this.messages = [];
 			}
 			this.messages.push(...messages);
+			this.loading = false;
 		});
 		// TODO : ajouter la gestion des erreurs serveur
 	}
