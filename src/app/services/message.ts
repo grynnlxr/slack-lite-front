@@ -3,7 +3,16 @@ import { User, UserService } from './user';
 import { Thread, ThreadService } from './thread';
 import { HttpClient } from '@angular/common/http';
 
-export interface Message {
+export class Message {
+	constructor(
+		public id: string,
+		public content: string,
+		public author: User,
+		public date: Date
+	) {}
+}
+
+export interface ServerMessage {
 	id: string;
 	content: string;
 	author: User;
@@ -36,12 +45,15 @@ export class MessageService {
 			offset,
 		});
 		const url = `/api/v1/messages?${options}`;
-		const request = this.http.get<Message[]>(url);
-		request.subscribe((messages: Message[]) => {
+		const request = this.http.get<ServerMessage[]>(url);
+		request.subscribe((messages: ServerMessage[]) => {
 			if (offset < 1) {
 				this.messages = [];
 			}
-			this.messages.push(...messages);
+			for (let m of messages) {
+				const message = this.serverMessageToMessage(m);
+				this.messages.push(message);
+			}
 			this.loading = false;
 		});
 		// TODO : ajouter la gestion des erreurs serveur
@@ -55,12 +67,13 @@ export class MessageService {
 		}
 		const url = `/api/v1/messages`;
 		const body = { content, thread: thread.id };
-		const request = this.http.post<Message>(url, body, {
+		const request = this.http.post<ServerMessage>(url, body, {
 			headers: {
 				Authorization: user.id,
 			},
 		});
-		request.subscribe((message: Message) => {
+		request.subscribe((m: ServerMessage) => {
+			const message = this.serverMessageToMessage(m);
 			this.messages.push(message);
 		});
 		// TODO : ajouter la gestion des erreurs serveur
@@ -72,14 +85,23 @@ export class MessageService {
 			return;
 		}
 		const url = `/api/v1/messages/${id}`;
-		const request = this.http.delete<Partial<Message>>(url, {
+		const request = this.http.delete<Partial<ServerMessage>>(url, {
 			headers: {
 				Authorization: user.id,
 			},
 		});
-		request.subscribe((message: Partial<Message>) => {
+		request.subscribe((message: Partial<ServerMessage>) => {
 			this.messages = this.messages.filter((m) => m.id != message.id);
 		});
 		// TODO : ajouter la gestion des erreurs serveur
+	}
+
+	serverMessageToMessage(m: ServerMessage): Message {
+		const author: User = this.userService.get(m.author.id) || m.author;
+		if (!author.avatar) {
+			author.avatar = '/assets/bot.ava.png';
+		}
+		const message = new Message(m.id, m.content, author, new Date(m.date));
+		return message;
 	}
 }
