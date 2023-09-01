@@ -31,6 +31,10 @@ export class UserService {
 		}
 	}
 
+	get(id: string) {
+		return this.users.find((u) => u.id == id);
+	}
+
 	login(name: string): boolean {
 		const user = this.users.find((u) => u.name == name);
 		if (user) {
