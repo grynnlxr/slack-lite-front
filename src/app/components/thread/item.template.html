@@ -1,0 +1,5 @@
+<div>
+	<p><span *ngIf="data.locked">locked</span> {{ data.label }}</p>
+	<button *ngIf="!data.locked" type="button">edit</button>
+	<button *ngIf="!data.locked" type="button">delete</button>
+</div>
