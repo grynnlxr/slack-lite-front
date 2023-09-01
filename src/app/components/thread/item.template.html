@@ -1,9 +1,17 @@
 <div>
-	<p><span *ngIf="data.locked">locked</span> {{ data.label }}</p>
-	<button *ngIf="!data.locked" (click)="edit($event)" type="button">
-		edit
+	<p *ngIf="!data.editMode">
+		<span *ngIf="data.locked">locked</span> {{ data.label }}
+	</p>
+	<form *ngIf="data.editMode" (ngSubmit)="update(thread)" #thread="ngForm">
+		<!-- prettier-ignore -->
+		<input type="text" [(ngModel)]="data.label" name="label" placeholder="label" />
+		<button type="submit">modifier</button>
+	</form>
+	<button *ngIf="!data.locked" (click)="toggleEdit($event)" type="button">
+		{{ data.editMode ? 'x' : 'edit' }}
 	</button>
-	<button *ngIf="!data.locked" (click)="remove($event)" type="button">
+	<!-- prettier-ignore -->
+	<button *ngIf="!data.locked && !data.editMode" (click)="remove($event)" type="button">
 		delete
 	</button>
 </div>
