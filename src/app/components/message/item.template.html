@@ -1,7 +1,28 @@
-<div>
+<!-- <div>
 	<p>{{ data.author.name }}, at {{ data.date }} ({{ data.id }})</p>
 	<p [innerHTML]="data.content"></p>
 	<button *ngIf="isTheAuthor()" (click)="remove()" title="delete">
 		<i class="gg-trash"></i>
 	</button>
-</div>
+</div> -->
+
+<article class="media">
+	<div class="media-left">
+		<figure class="image is-64x64">
+			<img src="{{ data.author.avatar }}" alt="Profile picture" />
+		</figure>
+	</div>
+	<div class="media-content">
+		<div class="content">
+			<div class="message-core">
+				<strong>{{ data.author.name }}</strong>,
+				<small>{{ data.date }}</small>
+				<button class="delete-button" *ngIf="isTheAuthor()" (click)="remove()" title="delete">
+					<i class="gg-trash"></i>
+				</button>
+				<br />
+				<div [innerHTML]="data.content"></div>
+			</div>
+		</div>
+	</div>
+</article>
