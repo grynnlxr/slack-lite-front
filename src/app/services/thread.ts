@@ -52,4 +52,37 @@ export class ThreadService {
 		}
 		return false;
 	}
+
+	create(label: string) {
+		const request = this.http.post<ServerThread>('/api/v1/threads', {
+			label,
+		});
+		request.subscribe((thread: ServerThread) => {
+			let { id, label, locked } = thread;
+			this.threads.push(new Thread(id, label, locked));
+		});
+	}
+
+	update(id: string, label: string) {
+		const request = this.http.put<ServerThread>(`/api/v1/threads`, {
+			id,
+			label,
+		});
+		request.subscribe((thread: ServerThread) => {
+			let { id, label } = thread;
+			const th = this.threads.filter((t) => t.id == id)[0];
+			th.editMode = false;
+			th.label = label;
+		});
+	}
+
+	remove(id: string) {
+		if (this.thread?.id == id) {
+			this.thread = undefined;
+		}
+		const request = this.http.delete<ServerThread>(`/api/v1/threads/${id}`);
+		request.subscribe((thread: ServerThread) => {
+			this.threads = this.threads.filter((t) => t.id != thread.id);
+		});
+	}
 }
