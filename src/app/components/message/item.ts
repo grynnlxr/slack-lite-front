@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Message } from 'src/app/services/message';
+import { Message, MessageService } from 'src/app/services/message';
 
 @Component({
 	selector: 'message-item',
@@ -7,4 +7,13 @@ import { Message } from 'src/app/services/message';
 })
 export class MessageItemComponent {
 	@Input() data!: Message;
+
+	constructor(
+		// service
+		private service: MessageService
+	) {}
+
+	remove() {
+		this.service.delete(this.data.id);
+	}
 }
