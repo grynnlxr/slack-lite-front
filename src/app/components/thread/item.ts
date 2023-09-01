@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Thread } from 'src/app/services/thread';
+import { NgForm } from '@angular/forms';
+import { Thread, ThreadService } from 'src/app/services/thread';
 
 @Component({
 	selector: 'thread-item',
@@ -8,11 +9,24 @@ import { Thread } from 'src/app/services/thread';
 export class ThreadItemComponent {
 	@Input() data!: Thread;
 
-	edit(event: MouseEvent) {
+	constructor(
+		// service
+		private service: ThreadService
+	) {}
+
+	update(form: NgForm) {
+		const id = this.data.id;
+		const label = form.value.label;
+		this.service.update(id, label);
+	}
+
+	toggleEdit(event: MouseEvent) {
 		event.stopPropagation();
+		this.data.editMode = !this.data.editMode;
 	}
 
 	remove(event: MouseEvent) {
 		event.stopPropagation();
+		this.service.remove(this.data.id);
 	}
 }
