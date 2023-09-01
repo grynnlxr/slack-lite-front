@@ -5,6 +5,7 @@ import { Thread, ThreadService } from 'src/app/services/thread';
 @Component({
 	selector: 'thread-item',
 	templateUrl: './item.template.html',
+	styleUrls: ['./item.style.css'],
 })
 export class ThreadItemComponent {
 	@Input() data!: Thread;
