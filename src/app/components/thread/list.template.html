@@ -1,10 +1,21 @@
-<p *ngIf="service.threads.length < 1">loading</p>
+<aside class="is-hidden-mobile">
+	<p *ngIf="service.threads.length < 1">loading</p>
 
-<section *ngFor="let thread of service.threads">
-	<thread-item (click)="changeTo(thread)" [data]="thread"></thread-item>
-</section>
+	<thread-item
+		*ngFor="let thread of service.threads"
+		(click)="changeTo(thread)"
+		[data]="thread"
+	></thread-item>
 
-<form (ngSubmit)="onSubmit(create)" #create="ngForm">
 	<!-- prettier-ignore -->
-	<input type="text" [(ngModel)]="label" name="label" placeholder="Nouveau thread" />
-</form>
+	<form (ngSubmit)="onSubmit(create)" #create="ngForm" class="field has-addons">
+		<div class="control">
+			<input type="text" [(ngModel)]="label" name="label" placeholder="Nouveau thread" class="input" />
+		</div>
+		<div class="control">
+			<button type="button" class="button is-success" title="add">
+				<i class="gg-math-plus"></i>
+			</button>
+		</div>
+	</form>
+</aside>
