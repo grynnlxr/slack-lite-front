@@ -1,4 +1,19 @@
-<p *ngIf="service.messages.length < 1">loading</p>
-<ul *ngFor="let message of service.messages">
-	<li>{{ message.id }}</li>
-</ul>
+<h1 *ngIf="getState() > 1">{{ threadService.thread?.label }}</h1>
+
+<div [ngSwitch]="getState()">
+	<p *ngSwitchCase="0">pas de thread choisi</p>
+	<p *ngSwitchCase="1">loading</p>
+	<p *ngSwitchCase="2">pas de messages</p>
+	<section *ngSwitchDefault>
+		<message-item
+			*ngFor="let message of messageService.messages"
+			[data]="message"
+		></message-item>
+	</section>
+</div>
+
+<form *ngIf="getState() > 1" (ngSubmit)="addMessage(login)" #login="ngForm">
+	<!-- prettier-ignore -->
+	<input type="text" [(ngModel)]="message" name="message" placeholder="Message" />
+	<button type="submit">envoyer</button>
+</form>
