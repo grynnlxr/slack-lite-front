@@ -5,6 +5,7 @@ import { User, UserService } from 'src/app/services/user';
 @Component({
 	selector: 'app-credential',
 	templateUrl: './template.html',
+	styleUrls: ['./style.css'],
 })
 export class CredentialPage {
 	name: string = '';
