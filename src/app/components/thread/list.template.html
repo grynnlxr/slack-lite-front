@@ -1,4 +1,10 @@
 <p *ngIf="service.threads.length < 1">loading</p>
+
 <section *ngFor="let thread of service.threads">
 	<thread-item (click)="changeTo(thread)" [data]="thread"></thread-item>
 </section>
+
+<form (ngSubmit)="onSubmit(create)" #create="ngForm">
+	<!-- prettier-ignore -->
+	<input type="text" [(ngModel)]="label" name="label" placeholder="Nouveau thread" />
+</form>
