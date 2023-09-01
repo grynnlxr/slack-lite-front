@@ -6,6 +6,7 @@ import { ThreadService } from 'src/app/services/thread';
 @Component({
 	selector: 'message-list',
 	templateUrl: './list.template.html',
+	styleUrls: ['./list.style.css'],
 })
 export class MessageListComponent {
 	message!: string;
