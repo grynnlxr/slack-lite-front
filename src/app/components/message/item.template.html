@@ -1,5 +1,7 @@
 <div>
 	<p>{{ data.author.name }}, at {{ data.date }} ({{ data.id }})</p>
 	<p [innerHTML]="data.content"></p>
-	<button (click)="remove()">delete</button>
+	<button *ngIf="isTheAuthor()" (click)="remove()" title="delete">
+		<i class="gg-trash"></i>
+	</button>
 </div>
