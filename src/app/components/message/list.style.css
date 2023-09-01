@@ -1,9 +1,15 @@
 section {
+	width: calc(100vw - 18px);
 	min-height: calc(100vh - 73px);
+}
+
+h1 {
+	margin-top: 16px;
 }
 
 @media (min-width: 769px) {
 	section {
 		margin-left: 260px;
+		width: min(calc(100vw - 278px), 900px);
 	}
 }
