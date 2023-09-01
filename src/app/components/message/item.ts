@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/user';
 @Component({
 	selector: 'message-item',
 	templateUrl: './item.template.html',
+	styleUrls: ['./item.style.css'],
 })
 export class MessageItemComponent {
 	@Input() data!: Message;
