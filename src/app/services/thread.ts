@@ -1,7 +1,17 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-export interface Thread {
+export class Thread {
+	public editMode: boolean = false;
+
+	constructor(
+		public id: string,
+		public label: string,
+		public locked: boolean
+	) {}
+}
+
+export interface ServerThread {
 	id: string;
 	label: string;
 	locked: boolean;
@@ -23,9 +33,12 @@ export class ThreadService {
 	}
 
 	fetch() {
-		const request = this.http.get<Thread[]>('/api/v1/threads');
-		request.subscribe((threads: Thread[]) => {
-			this.threads = threads;
+		const request = this.http.get<ServerThread[]>('/api/v1/threads');
+		request.subscribe((threads: ServerThread[]) => {
+			this.threads = [];
+			for (let { id, label, locked } of threads) {
+				this.threads.push(new Thread(id, label, locked));
+			}
 		});
 		// TODO : gestion erreurs
 	}
