@@ -1,0 +1,9 @@
+section {
+	min-height: calc(100vh - 73px);
+}
+
+@media (min-width: 769px) {
+	section {
+		margin-left: 260px;
+	}
+}
