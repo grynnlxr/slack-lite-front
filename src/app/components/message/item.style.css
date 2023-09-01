@@ -1,0 +1,13 @@
+article {
+	margin: 12px;
+}
+
+.message-core {
+	position: relative;
+}
+
+.delete-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
