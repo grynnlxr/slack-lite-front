@@ -39,6 +39,7 @@ export class ThreadService {
 			for (let { id, label, locked } of threads) {
 				this.threads.push(new Thread(id, label, locked));
 			}
+			this.sort();
 		});
 		// TODO : gestion erreurs
 	}
@@ -73,6 +74,7 @@ export class ThreadService {
 			const th = this.threads.filter((t) => t.id == id)[0];
 			th.editMode = false;
 			th.label = label;
+			this.sort();
 		});
 	}
 
@@ -83,6 +85,14 @@ export class ThreadService {
 		const request = this.http.delete<ServerThread>(`/api/v1/threads/${id}`);
 		request.subscribe((thread: ServerThread) => {
 			this.threads = this.threads.filter((t) => t.id != thread.id);
+		});
+	}
+
+	sort() {
+		this.threads = this.threads.sort(function (a, b) {
+			if (a.locked) return -1;
+			if (b.locked) return 1;
+			return a.label.localeCompare(b.label);
 		});
 	}
 }
