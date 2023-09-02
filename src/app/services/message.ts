@@ -54,6 +54,7 @@ export class MessageService {
 				const message = this.serverMessageToMessage(m);
 				this.messages.push(message);
 			}
+			this.sort();
 			this.loading = false;
 		});
 		// TODO : ajouter la gestion des erreurs serveur
@@ -73,6 +74,9 @@ export class MessageService {
 			},
 		});
 		request.subscribe((m: ServerMessage) => {
+			if (!m.date) {
+				m.date = new Date().toString();
+			}
 			const message = this.serverMessageToMessage(m);
 			this.messages.push(message);
 		});
@@ -103,5 +107,11 @@ export class MessageService {
 		}
 		const message = new Message(m.id, m.content, author, new Date(m.date));
 		return message;
+	}
+
+	sort() {
+		this.messages = this.messages.sort(
+			(a, b) => a.date.getTime() - b.date.getTime()
+		);
 	}
 }
