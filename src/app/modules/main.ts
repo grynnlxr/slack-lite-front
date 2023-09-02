@@ -7,21 +7,26 @@ import { AppRoutingModule } from './routing';
 
 import { MainPage } from '../pages/main/main';
 import { ThreadPage } from '../pages/thread/thread';
+import { FriendlyDatePipe } from '../pipes/friendlyDatePipe';
 import { CredentialPage } from '../pages/credential/credential';
 import { ThreadListComponent } from '../components/thread/list';
+import { ThreadItemComponent } from '../components/thread/item';
 import { MessageListComponent } from '../components/message/list';
 import { MessageItemComponent } from '../components/message/item';
-import { ThreadItemComponent } from '../components/thread/item';
 
 @NgModule({
 	declarations: [
+		// Pages
 		MainPage,
 		ThreadPage,
 		CredentialPage,
+		// Component
 		ThreadItemComponent,
 		ThreadListComponent,
 		MessageItemComponent,
 		MessageListComponent,
+		// Pipe
+		FriendlyDatePipe,
 	],
 	imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
 	providers: [],
