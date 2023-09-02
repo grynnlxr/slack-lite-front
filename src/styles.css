@@ -1,3 +1,7 @@
+span.underline {
+	text-decoration: underline;
+}
+
 .gg-log-off {
 	box-sizing: border-box;
 	position: relative;
