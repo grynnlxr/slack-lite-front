@@ -15,6 +15,10 @@ export class ThreadItemComponent {
 		private service: ThreadService
 	) {}
 
+	isSelected() {
+		return this.data.id == this.service.thread?.id;
+	}
+
 	update(form: NgForm) {
 		const id = this.data.id;
 		const label = form.value.label;
