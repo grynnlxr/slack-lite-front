@@ -29,6 +29,7 @@ CREATE TABLE "public"."message" (
 INSERT INTO "public"."user" ("id", "name")
 VALUES
 	('6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', 'Angelisium'),
+	('f0059590-a2ff-4c3a-84a5-ad081e06b68f', 'Le grabataire'),
 	('e6d8b859-22ea-4d4d-a958-f7677a23a38b', 'Alice');
 
 INSERT INTO "public"."thread" ("id", "label", "locked")
@@ -70,4 +71,3 @@ Trop h&acirc;te 😋',
 -- 0cc2c5e5-d8c2-4036-8833-9f9ef3e38b7c
 -- 624eb4cb-3e9a-4cfe-bc59-d364256196ea
 -- d8cd7cde-513a-4260-8995-e5196b70c072
--- f0059590-a2ff-4c3a-84a5-ad081e06b68f
