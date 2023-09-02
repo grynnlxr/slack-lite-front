@@ -9,7 +9,7 @@
 		<div class="content">
 			<div class="message-core">
 				<strong>{{ data.author.name }}</strong>,
-				<small>{{ data.date }}</small>
+				<small>{{ data.date | friendlyDate }}</small>
 				<button class="delete-button button is-small is-ghost" *ngIf="isTheAuthor()" (click)="remove()" title="delete">
 					supprimer
 				</button>
