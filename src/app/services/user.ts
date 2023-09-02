@@ -24,7 +24,7 @@ export class UserService {
 		},
 		{
 			id: 'f0059590-a2ff-4c3a-84a5-ad081e06b68f',
-			name: 'Legrabataire',
+			name: 'Le grabataire',
 			avatar: '/assets/socrate.ava.png',
 		},
 	];
