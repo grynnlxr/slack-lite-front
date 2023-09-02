@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <nav role="navigation" aria-label="main navigation">
 	<button class="button is-white is-hidden-tablet" (click)="toggleDisplay()" type="button" title="mobile toggle">
-		<i class="gg-menu-left-alt"></i>
+		<i class="{{ display ? 'gg-close' : 'gg-menu-left-alt' }}"></i>
 	</button>
 	<h3>{{ service.user?.name }}</h3>
 	<button class="button is-white" type="button" (click)="service.logout()" title="logout">
