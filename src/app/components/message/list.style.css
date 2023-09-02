@@ -1,6 +1,7 @@
 section {
 	width: calc(100vw - 18px);
 	min-height: calc(100vh - 89px);
+	padding: 24px 16px;
 }
 
 h1 {
@@ -12,4 +13,12 @@ h1 {
 		margin-left: 260px;
 		width: min(calc(100vw - 278px), 900px);
 	}
+}
+
+section > form {
+	margin-top: 24px;
+}
+
+section > form > h3 {
+	margin-bottom: 4px;
 }
