@@ -4,6 +4,12 @@ section {
 	padding: 24px 16px;
 }
 
+section > * {
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 h1 {
 	margin-top: 16px;
 }
@@ -11,7 +17,7 @@ h1 {
 @media (min-width: 769px) {
 	section {
 		margin-left: 260px;
-		width: min(calc(100vw - 278px), 900px);
+		width: calc(100vw - 278px);
 	}
 }
 
