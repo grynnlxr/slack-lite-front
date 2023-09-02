@@ -61,6 +61,7 @@ export class ThreadService {
 		request.subscribe((thread: ServerThread) => {
 			let { id, label, locked } = thread;
 			this.threads.push(new Thread(id, label, locked));
+			this.sort();
 		});
 	}
 
