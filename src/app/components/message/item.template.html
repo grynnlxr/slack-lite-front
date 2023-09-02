@@ -1,11 +1,4 @@
-<!-- <div>
-	<p>{{ data.author.name }}, at {{ data.date }} ({{ data.id }})</p>
-	<p [innerHTML]="data.content"></p>
-	<button *ngIf="isTheAuthor()" (click)="remove()" title="delete">
-		<i class="gg-trash"></i>
-	</button>
-</div> -->
-
+<!-- prettier-ignore -->
 <article class="media">
 	<div class="media-left">
 		<figure class="image is-64x64">
@@ -17,8 +10,8 @@
 			<div class="message-core">
 				<strong>{{ data.author.name }}</strong>,
 				<small>{{ data.date }}</small>
-				<button class="delete-button" *ngIf="isTheAuthor()" (click)="remove()" title="delete">
-					<i class="gg-trash"></i>
+				<button class="delete-button button is-small is-ghost" *ngIf="isTheAuthor()" (click)="remove()" title="delete">
+					supprimer
 				</button>
 				<br />
 				<div [innerHTML]="data.content"></div>
