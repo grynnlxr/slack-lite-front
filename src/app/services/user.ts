@@ -22,6 +22,11 @@ export class UserService {
 			name: 'Alice',
 			avatar: '/assets/alice.ava.png',
 		},
+		{
+			id: 'f0059590-a2ff-4c3a-84a5-ad081e06b68f',
+			name: 'Legrabataire',
+			avatar: '/assets/socrate.ava.png',
+		},
 	];
 
 	constructor() {
