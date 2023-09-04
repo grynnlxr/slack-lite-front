@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface User {
@@ -11,43 +12,26 @@ export interface User {
 })
 export class UserService {
 	public user: User | null = null;
-	private users: User[] = [
-		{
-			id: '6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa',
-			name: 'Angelisium',
-			avatar: '/assets/alexis.ava.png',
-		},
-		{
-			id: 'e6d8b859-22ea-4d4d-a958-f7677a23a38b',
-			name: 'Alice',
-			avatar: '/assets/alice.ava.png',
-		},
-		{
-			id: 'f0059590-a2ff-4c3a-84a5-ad081e06b68f',
-			name: 'Le grabataire',
-			avatar: '/assets/socrate.ava.png',
-		},
-	];
+	public loading: boolean = false;
 
-	constructor() {
+	constructor(
+		// Service
+		private http: HttpClient
+	) {
 		const username = localStorage.getItem('username');
 		if (username) {
+			this.loading = true;
 			this.login(username);
 		}
 	}
 
-	get(id: string) {
-		return this.users.find((u) => u.id == id);
-	}
-
-	login(name: string): boolean {
-		const user = this.users.find((u) => u.name == name);
-		if (user) {
+	login(name: string) {
+		const url = `/api/v1/users`;
+		const request = this.http.post<User>(url, { name });
+		request.subscribe((user: User) => {
 			localStorage.setItem('username', user.name);
 			this.user = user;
-			return true;
-		}
-		return false;
+		});
 	}
 
 	logout() {
