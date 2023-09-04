@@ -28,9 +28,10 @@ export class UserService {
 	login(name: string) {
 		const url = `/api/v1/users`;
 		const request = this.http.post<User>(url, { name });
-		request.subscribe((user: User) => {
+		request.subscribe(async (user: User) => {
 			localStorage.setItem('username', user.name);
 			this.user = user;
+			this.loading = false;
 		});
 	}
 
