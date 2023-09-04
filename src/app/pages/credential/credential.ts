@@ -20,4 +20,8 @@ export class CredentialPage {
 		}
 		this.service.login(name);
 	}
+
+	isLoading() {
+		return this.service.loading;
+	}
 }
