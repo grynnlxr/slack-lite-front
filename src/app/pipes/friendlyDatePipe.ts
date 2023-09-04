@@ -25,7 +25,7 @@ export class FriendlyDatePipe implements PipeTransform {
 			M = value.getMonth(),
 			Y = value.getFullYear(),
 			H = value.getHours(),
-			m = value.getMinutes();
+			m = ('0' + value.getMinutes()).slice(-2);
 
 		let buffer: string[] = [];
 		if (D != now.getDate()) {
