@@ -29,13 +29,13 @@ CREATE TABLE "public"."message" (
 
 INSERT INTO "public"."user" ("id", "name", "avatar")
 VALUES
-	('6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', 'Angelisium', '/assets/alexis.ava.png'),
+	('6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', 'Angelisium',    '/assets/alexis.ava.png' ),
 	('f0059590-a2ff-4c3a-84a5-ad081e06b68f', 'Le grabataire', '/assets/socrate.ava.png'),
-	('e6d8b859-22ea-4d4d-a958-f7677a23a38b', 'Alice', '/assets/alice.ava.png');
+	('e6d8b859-22ea-4d4d-a958-f7677a23a38b', 'Alice',         '/assets/alice.ava.png'  );
 
 INSERT INTO "public"."thread" ("id", "label", "locked")
 VALUES
-	('6c77bdf7-477d-4147-b5fc-b849021936be', 'Général', true),
+	('6c77bdf7-477d-4147-b5fc-b849021936be', 'Général',  true ),
 	('4cb26429-38ad-45f5-9d66-60ebb4a24e1e', 'Hello 🌎', false);
 
 INSERT INTO "public"."message" ("id", "author_id", "thread_id", "content", "date")
@@ -43,27 +43,19 @@ VALUES (
 	'f693ee69-8020-419f-ae23-2822875ebfb2',
 	'e6d8b859-22ea-4d4d-a958-f7677a23a38b',
 	'6c77bdf7-477d-4147-b5fc-b849021936be',
-	'Bonjour tout le monde, j''esp&egrave;re que vous allez bien !
-
-Petite mise &agrave; jour des fonctionnalit&eacute;s de discussion, maintenant, vous pouvez mettre le texte **en gras** (**), //en italique// (//), --le barr&eacute;-- (--) et __le soulign&eacute;__ (__) !
-
-Vous pouvez &eacute;galement utiliser des outils de jeu de r&ocirc;le, les d&egrave;s (d4, 6, 8, 10, 12, 20 et 100) : {d4:1}, {d6:6}, {d8:1}, {d10:2}, {d12:4}, {d20:18} et {d100:52}',
+	'Bonjour tout le monde, j''esp&egrave;re que vous allez bien !\n\nPetite mise &agrave; jour des fonctionnalit&eacute;s de discussion, maintenant, vous pouvez mettre le texte **en gras** (**), //en italique// (//), --le barr&eacute;-- (--) et __le soulign&eacute;__ (__) !\n\nVous pouvez &eacute;galement utiliser des outils de jeu de r&ocirc;le, les d&egrave;s (d4, 6, 8, 10, 12, 20 et 100) : {d4:1}, {d6:6}, {d8:1}, {d10:2}, {d12:4}, {d20:18} et {d100:52}',
 	'2023-09-02 12:49:58.662259'
 ),(
 	'7d317a8a-d611-4893-9cbe-0f82a1ce9104',
 	'6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa',
 	'4cb26429-38ad-45f5-9d66-60ebb4a24e1e',
-	'Salut &agrave; tous,
-Aujourd''hui j''ai manger de la pizza et vous ?
-
-D''ailleurs, &ccedil;a me fait pensez, qui ici est chaud pour une pizza-party ?',
+	'Salut &agrave; tous,\nAujourd''hui j''ai manger de la pizza et vous ?\n\nD''ailleurs, &ccedil;a me fait pensez, qui ici est chaud pour une pizza-party ?',
 	'2023-09-02 12:10:45.843813'
 ),(
 	'a24b8b82-24bf-457f-a47b-6fbae46bd90f',
 	'e6d8b859-22ea-4d4d-a958-f7677a23a38b',
 	'4cb26429-38ad-45f5-9d66-60ebb4a24e1e',
-	'Let''s go !!
-Trop h&acirc;te 😋',
+	'Let''s go !!\nTrop h&acirc;te 😋',
 	'2023-09-02 12:51:04.45488'
 );
 
