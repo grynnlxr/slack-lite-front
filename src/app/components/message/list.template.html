@@ -16,6 +16,7 @@
 			</div>
 		</article>
 		<div *ngSwitchDefault>
+			<button *ngIf="hasMore()" (click)="loadMore()" class="button is-ghost">afficher plus de messages</button>
 			<message-item
 				*ngFor="let message of messageService.messages"
 				[data]="message"
