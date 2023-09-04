@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS "public"."user";
 CREATE TABLE "public"."user" (
 	"id" uuid NOT NULL,
 	"name" varchar(50) NOT NULL,
+	"avatar" varchar(50) NOT NULL,
     PRIMARY KEY ("id")
 );
 
@@ -26,11 +27,11 @@ CREATE TABLE "public"."message" (
     PRIMARY KEY ("id")
 );
 
-INSERT INTO "public"."user" ("id", "name")
+INSERT INTO "public"."user" ("id", "name", "avatar")
 VALUES
-	('6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', 'Angelisium'),
-	('f0059590-a2ff-4c3a-84a5-ad081e06b68f', 'Le grabataire'),
-	('e6d8b859-22ea-4d4d-a958-f7677a23a38b', 'Alice');
+	('6d6ba1eb-3f9f-41b3-88af-fd3a959faeaa', 'Angelisium', '/assets/alexis.ava.png'),
+	('f0059590-a2ff-4c3a-84a5-ad081e06b68f', 'Le grabataire', '/assets/socrate.ava.png'),
+	('e6d8b859-22ea-4d4d-a958-f7677a23a38b', 'Alice', '/assets/alice.ava.png');
 
 INSERT INTO "public"."thread" ("id", "label", "locked")
 VALUES
