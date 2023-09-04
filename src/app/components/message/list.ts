@@ -36,4 +36,18 @@ export class MessageListComponent {
 		this.messageService.create(content);
 		form.reset();
 	}
+
+	hasMore() {
+		return this.messageService.hasnext;
+	}
+
+	loadMore() {
+		if (!this.threadService.thread) {
+			return;
+		}
+		this.messageService.fetch(
+			this.threadService.thread.id,
+			this.messageService.messages.length
+		);
+	}
 }
