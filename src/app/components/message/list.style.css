@@ -28,3 +28,8 @@ section > form {
 section > form > h3 {
 	margin-bottom: 4px;
 }
+
+div > button.button.is-ghost {
+	display: block;
+	margin: auto;
+}
