@@ -101,11 +101,8 @@ export class MessageService {
 	}
 
 	serverMessageToMessage(m: ServerMessage): Message {
-		const author: User = this.userService.get(m.author.id) || m.author;
-		if (!author.avatar) {
-			author.avatar = '/assets/bot.ava.png';
-		}
-		const message = new Message(m.id, m.content, author, new Date(m.date));
+		const { id, content, author, date } = m;
+		const message = new Message(id, content, author, new Date(date));
 		return message;
 	}
 
