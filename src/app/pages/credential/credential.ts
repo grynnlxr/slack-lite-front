@@ -14,9 +14,10 @@ export class CredentialPage {
 
 	onSubmit(form: NgForm) {
 		const name = form.value.name;
-		if (!this.service.login(name)) {
-			// TODO : afficher une popup "utilisateur inconnu"
+		if (name.length < 1) {
 			console.log('bad username');
+			return;
 		}
+		this.service.login(name);
 	}
 }
